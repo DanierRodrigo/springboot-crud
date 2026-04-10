@@ -22,21 +22,20 @@ public class ProductServiceImpl implements ProductService{
         return (List<Product>) repository.findAll();
     }
 
+    @Transactional(readOnly = true)
     @Override
     public Optional<Product> findById(Long id) {
         return repository.findById(id);
     }
 
     @Override
-    public void delete(Product product) {
-        // TODO Auto-generated method stub
-        
+    public Product save(Product product) {
+        return repository.save(product);
     }
 
     @Override
-    public Product save(Product product) {
+    public void delete(Product product) {
         // TODO Auto-generated method stub
-        return null;
-    }
-    
+        
+    }  
 }
