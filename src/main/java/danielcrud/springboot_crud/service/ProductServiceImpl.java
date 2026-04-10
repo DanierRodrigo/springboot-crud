@@ -23,15 +23,14 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public void delete(Product product) {
-        // TODO Auto-generated method stub
-        
+    public Optional<Product> findById(Long id) {
+        return repository.findById(id);
     }
 
     @Override
-    public Optional<Product> findById(Long id) {
+    public void delete(Product product) {
         // TODO Auto-generated method stub
-        return Optional.empty();
+        
     }
 
     @Override
