@@ -15,12 +15,11 @@ public class ProductServiceImpl implements ProductService{
 
     @Autowired
     private ProductRepository repository;
-    
+
     @Transactional(readOnly = true)
     @Override
     public List<Product> findAll() {
-        // TODO Auto-generated method stub
-        return null;
+        return (List<Product>) repository.findAll();
     }
 
     @Override
