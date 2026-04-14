@@ -28,14 +28,19 @@ public class ProductServiceImpl implements ProductService{
         return repository.findById(id);
     }
 
+    @Transactional
     @Override
     public Product save(Product product) {
         return repository.save(product);
     }
 
+    @Transactional
     @Override
-    public void delete(Product product) {
-        // TODO Auto-generated method stub
-        
+    public Optional <Product> delete(Product product) {
+        Optional <Product> productDb = repository.findById(product.getId());
+        productDb.ifPresent(prod -> {
+            repository.delete(product);
+        });
+        return productDb;
     }  
 }
